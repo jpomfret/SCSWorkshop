@@ -1,4 +1,4 @@
-name: Create a New Event PR
+name: When PR opened do this
 
 on: 
  pull_request:
@@ -13,13 +13,16 @@ jobs:
       with: 
        clean: true
        fetch-depth: 0
-    - name: Get Information to file
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJSON(github) }}
+      run: echo "$GITHUB_CONTEXT"
+    - name: Run a command
       run: |
-        Write-Host "What do we have?"
-        $IssueBody =  @"
-        ${{ github.event.issue.body }}
-        "@
-        # Write-Host $IssueBody 
-        $IssueBody | Out-File ./temp/temp.txt
+        $Question = "Who Opened PR {0} titled {1}?" -f '${{ github.event.pull_request.number }}' , '${{ github.event.pull_request.title }}' 
+        $Answer = "{2} Opened PR {0} titled {1}" -f '${{ github.event.pull_request.number }}' , '${{ github.event.pull_request.title }}' , '${{ github.event.pull_request.user.login }}' 
+        
+        Write-Host $Question 
+        Write-Host $Answer
       shell: pwsh
       continue-on-error: true   
