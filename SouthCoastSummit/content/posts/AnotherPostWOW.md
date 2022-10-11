@@ -1,7 +1,7 @@
 ---
 title: "AnotherPostWOW"
 date: 2022-10-11T13:04:51Z
-draft: true
+draft: false
 ---
 
 ## Step forth into the light new post
