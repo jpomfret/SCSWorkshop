@@ -38,4 +38,5 @@ We recommend downloading the repo and getting the local demo environment setup o
 
 At your name here when we get to git lesson 3:
 
-Ken Sayers
+- Ken Sayers
+- Rob the Bearded one
