@@ -1,6 +1,6 @@
 name: When PR closed do this
 
-on: 
+on:
  pull_request:
    types:
      - "closed"
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-      with: 
+      with:
        clean: true
        fetch-depth: 0
     - name: Dump GitHub context
@@ -22,4 +22,4 @@ jobs:
       uses: thechetantalwar/teams-notify@v2
       with:
        teams_webhook_url: ${{ secrets.BeardTeams }}
-       message: "GitHub Pull Request ${{ github.event.pull_request.title }} created by user ${{ github.event.pull_request.user.login }} has now been closed. The new post is live at https://happy-ocean-07fc83203.2.azurestaticapps.net . "
+       message: "GitHub Pull Request ${{ github.event.pull_request.title }} created by user ${{ github.event.pull_request.user.login }} has now been closed. The new post is live at https://thankful-field-05223b203.2.azurestaticapps.net . "
